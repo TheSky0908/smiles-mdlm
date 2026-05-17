@@ -26,7 +26,7 @@ class MoleculeMetrics:
     def update(self, generated_smiles, target_smiles):
         # BLEU score
         tokenizer = SMILESTokenizer()
-        tokenizer.load_vocabulary('/root/smiles-mdlm/smiles_vocab.txt')
+        tokenizer.load_vocabulary('./smiles_vocab.txt')
         gen_smiles = tokenizer.encode_one(generated_smiles)
         target_smiles = tokenizer.encode_one(target_smiles)
         gen_smiles = [str(token) for token in gen_smiles]

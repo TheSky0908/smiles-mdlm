@@ -15,7 +15,7 @@ config_path = 'configs/config.yaml'  # Path to your config file
 config = OmegaConf.load(config_path)
 
 # Update the config with the checkpoint path
-config.eval.checkpoint_path = '/root/smiles-mdlm/outputs/chebi/2024.12.18/095508/checkpoints/best.ckpt'  # Update with your checkpoint path
+config.eval.checkpoint_path = './best.ckpt'
 config.mode = 'sample_eval'  # Set mode to sample_eval
 
 config.noise = OmegaConf.load('configs/noise/loglinear.yaml')
@@ -25,7 +25,7 @@ config.data = OmegaConf.load('configs/data/chebi.yaml')
 logger = get_logger(__name__)  
 
 tokenizer = SMILESTokenizer()
-tokenizer.load_vocabulary('/root/smiles-mdlm/smiles_vocab.txt')
+tokenizer.load_vocabulary('./smiles_vocab.txt')
 
 text_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
 
@@ -68,6 +68,6 @@ for batch in tqdm(valid_set, desc="Evaluating"):
 
 # Compute and write the final metrics to an output file
 final_metrics = metrics.compute()
-with open('/root/smiles-mdlm/evaluation_metrics.txt', 'w') as f:
+with open('./evaluation_metrics.txt', 'w') as f:
     for metric, value in final_metrics.items():
         f.write(f"{metric}: {value}\n")

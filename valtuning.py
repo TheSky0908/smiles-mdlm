@@ -7,7 +7,7 @@ class SMILESValidityLosses:
         # Vocabulary mappings
         if vocab is None:
             self.tokenizer = SMILESTokenizer()
-            self.tokenizer.load_vocabulary('/root/smiles-mdlm/smiles_vocab.txt')
+            self.tokenizer.load_vocabulary('./smiles_vocab.txt')
             self.vocab = self.tokenizer.token_to_id
         else:
             self.vocab = vocab

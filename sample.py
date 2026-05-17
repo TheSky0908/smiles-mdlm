@@ -12,7 +12,7 @@ config_path = 'configs/config.yaml'  # Path to your config file
 config = OmegaConf.load(config_path)
 
 # Update the config with the checkpoint path
-config.eval.checkpoint_path = '/root/smiles-mdlm/outputs/chebi/2024.12.18/095508/checkpoints/best.ckpt'  # Update with your checkpoint path
+config.eval.checkpoint_path = './best.ckpt'  # Update with your checkpoint path
 config.mode = 'sample_eval'  # Set mode to sample_eval
 
 config.noise = OmegaConf.load('configs/noise/loglinear.yaml')
@@ -21,7 +21,7 @@ config.noise = OmegaConf.load('configs/noise/loglinear.yaml')
 logger = get_logger(__name__)  
 
 tokenizer = SMILESTokenizer()
-tokenizer.load_vocabulary('/root/smiles-mdlm/smiles_vocab.txt')
+tokenizer.load_vocabulary('./smiles_vocab.txt')
 
 # Load pre-trained BERT model and tokenizer
 bert_tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')

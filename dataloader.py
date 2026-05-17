@@ -169,7 +169,7 @@ def get_chebi_dataset(cache_dir, text_tokenizer, mode='train'):
     Returns:
         train_dataset, val_dataset: Tuple of datasets.Dataset with processed data
     """
-    cache_dir = f'/root/smiles-mdlm/cache/chebi'
+    cache_dir = f'./cache/chebi'
     
     # Check if processed datasets exist
     if utils.fsspec_exists(os.path.join(cache_dir, mode)):
@@ -184,7 +184,7 @@ def get_chebi_dataset(cache_dir, text_tokenizer, mode='train'):
     bert_model.eval()
 
     smiles_tokenizer = SMILESTokenizer()
-    smiles_tokenizer.load_vocabulary('/root/smiles-mdlm/smiles_vocab.txt')
+    smiles_tokenizer.load_vocabulary('./smiles_vocab.txt')
     
     def process_examples(examples):
         # Process SMILES sequences
@@ -413,7 +413,7 @@ def get_dataset(
         filename = f'{dataset_name}_{mode}_bs{block_size}_unwrapped.dat'
     _path = os.path.join(cache_dir, filename)
 
-    _path = f'/root/smiles-mdlm/cache/chebi/{mode}' ## hardcoding for testing
+    _path = f'./cache/chebi/{mode}' ## hardcoding for testing
     
     if utils.fsspec_exists(_path):
         LOGGER.info(f'Loading data from: {_path}')

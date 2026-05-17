@@ -72,7 +72,7 @@ def _print_config(
 @L.pytorch.utilities.rank_zero_only
 def _print_batch(train_ds, valid_ds, tokenizer, k=64):
   smiles_tokenizer = SMILESTokenizer()
-  smiles_tokenizer.load_vocabulary('/root/smiles-mdlm/smiles_vocab.txt')
+  smiles_tokenizer.load_vocabulary('./smiles_vocab.txt')
   for dl_type, dl in [
     ('train', train_ds), ('valid', valid_ds)]:
     print(f'Printing {dl_type} dataloader batch.')

@@ -26,5 +26,5 @@ def check_training_data_for_errors(training_data_file_path):
         print(f"An error occurred while reading the training data: {e}")
 
 # Path to the training data file
-training_data_file_path = "/root/smiles-mdlm/cache/chebi/train"
+training_data_file_path = "./cache/chebi/train"
 check_training_data_for_errors(training_data_file_path)

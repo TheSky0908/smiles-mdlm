@@ -159,7 +159,7 @@ class SMILESTokenizer:
 # Example usage
 if __name__ == "__main__":
     # Load the ChEBI dataset
-    cache_dir = '/root/smiles-mdlm/cache/chebi'
+    cache_dir = './cache/chebi'
     mode = 'train'
     dataset = load_dataset("liupf/chEBI-20-MM")
 
@@ -176,7 +176,7 @@ if __name__ == "__main__":
     smiles_tokenizer.train(smiles_list=train_smiles)
 
     # Save the trained vocabulary
-    smiles_tokenizer.save_vocabulary('/root/smiles-mdlm/smiles_vocab.txt')
+    smiles_tokenizer.save_vocabulary('./smiles_vocab.txt')
 
     # Test tokenization with unknown tokens
     test_smiles = [

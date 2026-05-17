@@ -79,7 +79,7 @@ class Diffusion(L.LightningModule):
 
     # Initialize both tokenizers
     self.smiles_tokenizer = SMILESTokenizer()
-    self.smiles_tokenizer.load_vocabulary('/root/smiles-mdlm/smiles_vocab.txt')
+    self.smiles_tokenizer.load_vocabulary('./smiles_vocab.txt')
     self.text_tokenizer = transformers.AutoTokenizer.from_pretrained('bert-base-uncased')
     self.bert_model = transformers.AutoModel.from_pretrained('bert-base-uncased')
     

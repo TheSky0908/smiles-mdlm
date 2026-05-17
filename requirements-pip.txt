@@ -1,41 +1,39 @@
-# Core dependencies
-torch>=2.1.1
-torchvision>=0.16.1
-torchaudio>=2.1.1
-numpy>=1.24.0
+# ── Already installed on Colab server — do not reinstall ──────────────────────
+# torch>=2.1.1
+# torchvision>=0.16.1
+# torchaudio>=2.1.1
+# numpy>=1.24.0        (Colab has 2.0.2)
+# omegaconf==2.3.0
+# seaborn==0.13.2
+# wandb>=0.16.0        (Colab has 0.25.1)
+# triton              (bundled with torch, do not pin separately)
+
+# ── Core dependencies ──────────────────────────────────────────────────────────
 datasets==2.18.0
 einops==0.7.0
 lightning==2.2.1
 transformers==4.38.2
 timm==0.9.16
-scikit-learn==1.4.0
-pandas==2.2.1
+scikit-learn>=1.5.0   # 1.4.0 requires numpy<2; 1.5+ supports numpy 2.x
+pandas>=2.2.2         # 2.2.1 requires numpy<2; 2.2.2+ supports numpy 2.x
 
-# Utilities
-wandb>=0.16.0
+# ── Utilities ──────────────────────────────────────────────────────────────────
 hydra-core==1.3.2
-omegaconf==2.3.0
 ipdb==0.13.13
 rich==13.7.1
 nvitop==1.3.2
 notebook==7.1.1
 
-# File handling & data processing
+# ── File handling & data processing ───────────────────────────────────────────
 fsspec==2024.2.0
 git-lfs==1.6
 h5py==3.10.0
 
-# Visualization
-seaborn==0.13.2
-
-# CUDA optimizations
-triton==2.2.0
-
-# eval suite
+# ── Eval suite ─────────────────────────────────────────────────────────────────
 rdkit==2024.03.5
 Levenshtein==0.22.0
 nltk==3.8.1
 
-# gui
+# ── GUI ────────────────────────────────────────────────────────────────────────
 flask==2.3.3
 py3Dmol==2.4.2
